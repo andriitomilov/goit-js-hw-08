@@ -3,6 +3,8 @@ import { galleryItems } from './gallery-items';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+const galleryContainer = document.querySelector('.gallery');
+
 const createGalleryMarkup = array =>
   array
     .map(
@@ -17,13 +19,9 @@ const createGalleryMarkup = array =>
     )
     .join('');
 
-const galleryContainer = document.querySelector('.gallery');
-
 galleryContainer.innerHTML = createGalleryMarkup(galleryItems);
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-
-
