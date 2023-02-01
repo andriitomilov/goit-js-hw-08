@@ -40,7 +40,7 @@ const onSubmitForm = e => {
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
   storage.email = "";
-  // storage.message = '';
+  storage.message = '';
 };
 
 refs.formEl.addEventListener('input', throttle(onInputUserPrintData, 500));
