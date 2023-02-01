@@ -5,7 +5,7 @@ const STORAGE_KEY = 'videoplayer-current-time';
 const iframe = document.querySelector('#vimeo-player');
 const player = new Player(iframe);
 
-const onTimeUpdateReloadPage = e => {
+const onTimeupdateReloadPage = e => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(e.seconds));
 }
 
@@ -13,5 +13,5 @@ if (localStorage.getItem(STORAGE_KEY)) {
   player.setCurrentTime(JSON.parse(localStorage.getItem(STORAGE_KEY)));
 }
 
-player.on('timeupdate', throttle(onTimeUpdateReloadPage, 1000));
+player.on('timeupdate', throttle(onTimeupdateReloadPage, 1000));
 
