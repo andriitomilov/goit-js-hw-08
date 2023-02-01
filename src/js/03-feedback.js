@@ -39,6 +39,8 @@ const onSubmitForm = e => {
   refs.formEl.reset();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
+  storage.email = "";
+  // storage.message = '';
 };
 
 refs.formEl.addEventListener('input', throttle(onInputUserPrintData, 500));
