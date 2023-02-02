@@ -18,7 +18,7 @@ if (localStorage.getItem(STORAGE_KEY)) {
 
   if (obj.message) {
     refs.userMessageEl.value = obj.message;
-    storage.email = obj.email;
+    storage.message = obj.email;
   }
 }
 
