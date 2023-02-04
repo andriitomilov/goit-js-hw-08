@@ -6,25 +6,24 @@ const refs = {
   userEmailEl: document.querySelector('input'),
   userMessageEl: document.querySelector('textarea'),
 };
-const storage = {};
+
 
 if (localStorage.getItem(STORAGE_KEY)) {
   const obj = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   if (obj.email) {
     refs.userEmailEl.value = obj.email;
-    storage.email = obj.email;
   }
 
   if (obj.message) {
     refs.userMessageEl.value = obj.message;
-    storage.message = obj.email;
   }
 }
 
 const onInputUserPrintData = e => {
+  let storage = localStorage.getItem(STORAGE_KEY);
+  storage = storage ? JSON.parse(storage) : {};
   storage[e.target.name] = e.target.value;
-
   localStorage.setItem(STORAGE_KEY, JSON.stringify(storage));
 };
 
@@ -39,8 +38,7 @@ const onSubmitForm = e => {
   refs.formEl.reset();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
-  storage.email = "";
-  storage.message = '';
+
 };
 
 refs.formEl.addEventListener('input', throttle(onInputUserPrintData, 500));
